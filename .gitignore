@@ -1,0 +1,14 @@
+# VSCode extension
+bridges/vscode/out/
+bridges/vscode/node_modules/
+bridges/vscode/*.vsix
+
+# Python
+python/.venv/
+**/__pycache__/
+**/*.egg-info/
+**/.python-version
+
+# Misc
+excalidraw.log
+.DS_Store

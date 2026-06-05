@@ -1,0 +1,5 @@
+[tool.uv.workspace]
+members = ["core", "cli"]
+
+[tool.uv]
+dev-dependencies = []
