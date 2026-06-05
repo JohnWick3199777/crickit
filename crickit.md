@@ -148,7 +148,13 @@ crickit Core (Python)
 ## CLI Commands
 
 ```
-crickit launch <config>        Start a debug session from a launch.json config or inline args
+# Implemented (v0.1)
+crickit sessions                              List active debug sessions (name, id, type)
+crickit launch <program> [args...]            Launch a debug session for a file
+         [--type TYPE]                        Debug adapter type (inferred from extension if omitted)
+         [--stop-on-entry]                    Pause at the first line
+
+# Planned
 crickit stop [sessionId]       Stop the active (or specified) session
 crickit stack                  Print the current call stack
 crickit vars [frameId]         Print variables in scope for a frame
