@@ -71,6 +71,61 @@ crickit/
 
 ---
 
+## Example: Python script to debug
+
+Create `examples/buggy.py` and use it as the debug target in VSCode:
+
+```python
+# examples/buggy.py
+
+def calculate_average(numbers):
+    total = 0
+    for n in numbers:
+        total += n
+    average = total / len(numbers)
+    return average
+
+
+def process_data(data):
+    results = []
+    for label, values in data.items():
+        avg = calculate_average(values)
+        results.append({"label": label, "average": avg})
+    return results
+
+
+if __name__ == "__main__":
+    dataset = {
+        "group_a": [10, 20, 30, 40],
+        "group_b": [5, 15, 25],
+        "group_c": [],          # bug: will cause ZeroDivisionError
+    }
+
+    results = process_data(dataset)
+    for r in results:
+        print(f"{r['label']}: {r['average']}")
+```
+
+VSCode `launch.json` to go with it:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug buggy.py",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/examples/buggy.py"
+    }
+  ]
+}
+```
+
+Start this debug session in VSCode (it will pause on the exception), then run `crickit sessions` — you should see `Debug buggy.py` in the output.
+
+---
+
 ## Notes
 
 - Socket path: `~/.crickit/bridge.sock` (create `~/.crickit/` if it doesn't exist)
