@@ -1,0 +1,313 @@
+{
+  "startedAt": "2026-06-07T19:06:11Z",
+  "steps": [
+    {
+      "command": "launch examples/buggy.py --stop-on-entry",
+      "at": "2026-06-07T19:06:37Z",
+      "result": {
+        "type": "launch",
+        "session": {
+          "id": "6ac75331-828d-4faa-9f69-8153057168cc",
+          "name": "buggy.py 2",
+          "type": "debugpy"
+        }
+      }
+    },
+    {
+      "command": "launch examples/buggy.py --stop-on-entry",
+      "at": "2026-06-07T19:09:19Z",
+      "result": {
+        "type": "launch",
+        "session": {
+          "id": "de870a99-881d-4cfa-8eba-c08b8de4925e",
+          "name": "buggy.py",
+          "type": "debugpy"
+        }
+      }
+    },
+    {
+      "command": "launch examples/buggy.py --stop-on-entry",
+      "at": "2026-06-07T19:12:38Z",
+      "result": {
+        "type": "launch",
+        "session": {
+          "id": "16b25510-2c2e-4b9a-b131-b51b908b764e",
+          "name": "buggy.py",
+          "type": "debugpy"
+        }
+      }
+    },
+    {
+      "command": "launch examples/buggy.py --stop-on-entry",
+      "at": "2026-06-07T19:13:55Z",
+      "result": {
+        "type": "launch",
+        "session": {
+          "id": "31ab0aeb-4fcc-48e6-a085-8012b6f6ae7d",
+          "name": "buggy.py",
+          "type": "debugpy"
+        }
+      }
+    },
+    {
+      "command": "bp add examples/buggy.py 5 --condition len(numbers) == 0",
+      "at": "2026-06-07T19:13:58Z",
+      "result": {
+        "type": "breakpoint_set",
+        "breakpoint": {
+          "id": "/Users/itamarbarron/crickit/examples/buggy.py:5",
+          "file": "/Users/itamarbarron/crickit/examples/buggy.py",
+          "line": 5,
+          "verified": true
+        }
+      }
+    },
+    {
+      "command": "launch examples/buggy.py --stop-on-entry",
+      "at": "2026-06-07T19:15:39Z",
+      "result": {
+        "type": "launch",
+        "session": {
+          "id": "766c17ac-8fec-48c0-b614-3bf0d28c064a",
+          "name": "buggy.py 2",
+          "type": "debugpy"
+        }
+      }
+    },
+    {
+      "command": "stack",
+      "at": "2026-06-07T19:15:42Z",
+      "result": {
+        "type": "stack",
+        "currentFrame": 0,
+        "frames": [
+          {
+            "id": 2,
+            "name": "<module>",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 1,
+            "column": 1
+          }
+        ]
+      }
+    },
+    {
+      "command": "bp add examples/buggy.py 5 --condition len(numbers) == 0",
+      "at": "2026-06-07T19:15:45Z",
+      "result": {
+        "type": "breakpoint_set",
+        "breakpoint": {
+          "id": "/Users/itamarbarron/crickit/examples/buggy.py:5",
+          "file": "/Users/itamarbarron/crickit/examples/buggy.py",
+          "line": 5,
+          "verified": true
+        }
+      }
+    },
+    {
+      "command": "continue",
+      "at": "2026-06-07T19:15:48Z",
+      "result": {
+        "type": "stop",
+        "state": {
+          "session_id": "31ab0aeb-4fcc-48e6-a085-8012b6f6ae7d",
+          "thread_id": 1,
+          "frame_id": 0,
+          "reason": "breakpoint",
+          "stopped_at": "breakpoint"
+        }
+      }
+    },
+    {
+      "command": "stack",
+      "at": "2026-06-07T19:15:51Z",
+      "result": {
+        "type": "stack",
+        "currentFrame": 0,
+        "frames": [
+          {
+            "id": 5,
+            "name": "calculate_average",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 5,
+            "column": 1
+          },
+          {
+            "id": 9,
+            "name": "process_data",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 12,
+            "column": 1
+          },
+          {
+            "id": 2,
+            "name": "<module>",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 24,
+            "column": 1
+          }
+        ]
+      }
+    },
+    {
+      "command": "vars",
+      "at": "2026-06-07T19:16:46Z",
+      "result": {
+        "type": "variables",
+        "frameId": 5,
+        "variables": [
+          {
+            "name": "numbers",
+            "value": "[]",
+            "type": "list",
+            "variables_reference": 8
+          },
+          {
+            "name": "total",
+            "value": "0",
+            "type": "int",
+            "variables_reference": 0
+          },
+          {
+            "name": "special variables",
+            "value": "",
+            "type": "",
+            "variables_reference": 12
+          },
+          {
+            "name": "function variables",
+            "value": "",
+            "type": "",
+            "variables_reference": 13
+          },
+          {
+            "name": "dataset",
+            "value": "{'group_a': [10, 20, 30, 40], 'group_b': [5, 15, 25], 'group_c': []}",
+            "type": "dict",
+            "variables_reference": 14
+          }
+        ]
+      }
+    },
+    {
+      "command": "stack",
+      "at": "2026-06-07T19:17:09Z",
+      "result": {
+        "type": "stack",
+        "currentFrame": 0,
+        "frames": [
+          {
+            "id": 2,
+            "name": "<module>",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 1,
+            "column": 1
+          }
+        ]
+      }
+    },
+    {
+      "command": "continue",
+      "at": "2026-06-07T19:17:31Z",
+      "result": {
+        "type": "stop",
+        "state": {
+          "session_id": "766c17ac-8fec-48c0-b614-3bf0d28c064a",
+          "thread_id": 1,
+          "frame_id": 0,
+          "reason": "breakpoint",
+          "stopped_at": "breakpoint"
+        }
+      }
+    },
+    {
+      "command": "stack",
+      "at": "2026-06-07T19:17:31Z",
+      "result": {
+        "type": "stack",
+        "currentFrame": 0,
+        "frames": [
+          {
+            "id": 6,
+            "name": "calculate_average",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 5,
+            "column": 1
+          },
+          {
+            "id": 7,
+            "name": "process_data",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 12,
+            "column": 1
+          },
+          {
+            "id": 2,
+            "name": "<module>",
+            "source": "/Users/itamarbarron/crickit/examples/buggy.py",
+            "line": 24,
+            "column": 1
+          }
+        ]
+      }
+    },
+    {
+      "command": "vars --frame 7",
+      "at": "2026-06-07T19:17:39Z",
+      "result": {
+        "type": "variables",
+        "frameId": 7,
+        "variables": [
+          {
+            "name": "avg",
+            "value": "15.0",
+            "type": "float",
+            "variables_reference": 0
+          },
+          {
+            "name": "data",
+            "value": "{'group_a': [10, 20, 30, 40], 'group_b': [5, 15, 25], 'group_c': []}",
+            "type": "dict",
+            "variables_reference": 13
+          },
+          {
+            "name": "label",
+            "value": "'group_c'",
+            "type": "str",
+            "variables_reference": 0
+          },
+          {
+            "name": "results",
+            "value": "[{'label': 'group_a', 'average': 25.0}, {'label': 'group_b', 'average': 15.0}]",
+            "type": "list",
+            "variables_reference": 14
+          },
+          {
+            "name": "values",
+            "value": "[]",
+            "type": "list",
+            "variables_reference": 10
+          },
+          {
+            "name": "special variables",
+            "value": "",
+            "type": "",
+            "variables_reference": 15
+          },
+          {
+            "name": "function variables",
+            "value": "",
+            "type": "",
+            "variables_reference": 16
+          },
+          {
+            "name": "dataset",
+            "value": "{'group_a': [10, 20, 30, 40], 'group_b': [5, 15, 25], 'group_c': []}",
+            "type": "dict",
+            "variables_reference": 13
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,4 +1,45 @@
-from .client import connect, get_debug_sessions, launch_debug_session
-from .models import DebugSession, SessionInfo
+from .client import (
+    connect,
+    continue_session,
+    get_debug_sessions,
+    get_scopes,
+    get_stack_trace,
+    get_variables,
+    launch_debug_session,
+    list_breakpoints,
+    remove_breakpoint,
+    set_breakpoint,
+    step_into,
+    step_out,
+    step_over,
+)
+from .models import Breakpoint, DebugSession, Scope, SessionInfo, StackFrame, Variable
+from .state import DebugState, clear_state, load_state, save_state
+from . import transcript
 
-__all__ = ["connect", "get_debug_sessions", "launch_debug_session", "DebugSession", "SessionInfo"]
+__all__ = [
+    "connect",
+    "continue_session",
+    "get_debug_sessions",
+    "get_scopes",
+    "get_stack_trace",
+    "get_variables",
+    "launch_debug_session",
+    "list_breakpoints",
+    "remove_breakpoint",
+    "set_breakpoint",
+    "step_into",
+    "step_out",
+    "step_over",
+    "Breakpoint",
+    "DebugSession",
+    "Scope",
+    "SessionInfo",
+    "StackFrame",
+    "Variable",
+    "DebugState",
+    "clear_state",
+    "load_state",
+    "save_state",
+    "transcript",
+]

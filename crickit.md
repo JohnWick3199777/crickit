@@ -154,16 +154,43 @@ crickit launch <program> [args...]            Launch a debug session for a file
          [--type TYPE]                        Debug adapter type (inferred from extension if omitted)
          [--stop-on-entry]                    Pause at the first line
 
+# Implemented (v0.2)
+crickit bp add <file> <line> [--condition EXPR]   Set a breakpoint
+crickit bp rm <id>                                Remove a breakpoint
+crickit bp list                                   List all breakpoints
+crickit continue                                  Continue until next stop
+crickit step                                      Step over
+crickit step-in                                   Step into a call
+crickit step-out                                  Step out of current frame
+crickit stack                                     Print the call stack at current stop
+crickit vars [--frame FRAME_ID]                   Print local variables at current stop
+
+# Implemented (transcripts)
+crickit record start <path>    Start recording every command + result to <path> as JSON
+crickit record stop            Stop recording
+
 # Planned
 crickit stop [sessionId]       Stop the active (or specified) session
-crickit stack                  Print the current call stack
-crickit vars [frameId]         Print variables in scope for a frame
 crickit eval <expression>      Evaluate an expression in the current frame
-crickit bp add <file> <line>   Set a breakpoint
-crickit bp rm <id>             Remove a breakpoint
-crickit bp list                List all breakpoints
-crickit continue               Continue execution
-crickit step                   Step over
-crickit step in                Step into
-crickit step out               Step out
 ```
+
+### Transcripts
+
+While recording is active (`crickit record start <path>`), every subsequent command appends a
+structured step to the JSON file at `<path>`:
+
+```json
+{
+  "startedAt": "2026-06-07T19:00:00Z",
+  "steps": [
+    { "command": "launch buggy.py --stop-on-entry", "at": "...", "result": { "type": "launch", "session": { "...": "..." } } },
+    { "command": "bp add buggy.py 5", "at": "...", "result": { "type": "breakpoint_set", "breakpoint": { "...": "..." } } },
+    { "command": "continue", "at": "...", "result": { "type": "stop", "state": { "...": "..." } } }
+  ]
+}
+```
+
+This gives a structured, replayable record of a debugging session — useful for reproducing bugs,
+writing regression tests, or sharing a scenario without re-running the investigation. Recording
+state lives in `~/.crickit/recording.json` (which transcript file is active); it's independent of
+debug session state in `~/.crickit/state.json`.
